@@ -184,7 +184,7 @@ function sortedHtml(element, showNgClass) {
         }
 
         var attr = attributes[i];
-        if (attr.name.match(/^ng[:\-]/) ||
+        if (attr.name.match(/^ng[:-]/) ||
             (attr.value || attr.value === '') &&
             attr.value !== 'null' &&
             attr.value !== 'auto' &&
@@ -241,7 +241,7 @@ function sortedHtml(element, showNgClass) {
         var tmp = style;
         style = [];
         forEach(tmp, function(value) {
-          if (!value.match(/^max[^\-]/)) {
+          if (!value.match(/^max[^-]/)) {
             style.push(value);
           }
         });
@@ -391,8 +391,7 @@ function generateInputCompilerHelper(helper) {
       };
 
       helper.changeInputValueTo = function(value) {
-        helper.inputElm.val(value);
-        browserTrigger(helper.inputElm, $sniffer.hasEvent('input') ? 'input' : 'change');
+        helper.changeGivenInputTo(helper.inputElm, value);
       };
 
       helper.changeGivenInputTo = function(inputElm, value) {

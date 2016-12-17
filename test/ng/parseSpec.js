@@ -2180,8 +2180,9 @@ describe('parser', function() {
         expect(scope.$eval('getter()()')).toBe(33);
       });
 
+      // Support: IE 9 only
       // There is no "strict mode" in IE9
-      if (!msie || msie > 9) {
+      if (msie !== 9) {
         it('should set no context to functions returned by other functions', function() {
           scope.getter = function() { return function() { expect(this).toBeUndefined(); }; };
           scope.$eval('getter()()');
@@ -3404,7 +3405,7 @@ describe('parser', function() {
   forEach([true, false], function(cspEnabled) {
     describe('custom identifiers (csp: ' + cspEnabled + ')', function() {
       var isIdentifierStartRe = /[#a-z]/;
-      var isIdentifierContinueRe = /[\-a-z]/;
+      var isIdentifierContinueRe = /[-a-z]/;
       var isIdentifierStartFn;
       var isIdentifierContinueFn;
       var scope;

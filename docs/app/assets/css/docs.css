@@ -662,6 +662,15 @@ ul.events > li {
   max-width: 100%;
 }
 
+.deprecation {
+  margin-top: 15px;
+}
+
+.deprecation .title {
+  float: left;
+  margin-right: 5px;
+}
+
 @media only screen and (min-width: 769px) {
   [ng-include="partialPath"].ng-hide {
     display: block !important;
