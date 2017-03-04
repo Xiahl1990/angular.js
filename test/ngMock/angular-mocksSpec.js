@@ -795,23 +795,6 @@ describe('ngMock', function() {
           });
         });
 
-        describe('module cleanup', function() {
-          function testFn() {
-
-          }
-
-          it('should add hashKey to module function', function() {
-            module(testFn);
-            inject(function() {
-              expect(testFn.$$hashKey).toBeDefined();
-            });
-          });
-
-          it('should cleanup hashKey after previous test', function() {
-            expect(testFn.$$hashKey).toBeUndefined();
-          });
-        });
-
         describe('$inject cleanup', function() {
           function testFn() {
 
@@ -940,7 +923,7 @@ describe('ngMock', function() {
       }));
 
       describe('error stack trace when called outside of spec context', function() {
-        // - Chrome, Firefox, Edge, Opera give us the stack trace as soon as an Error is created
+        // - Chrome, Firefox, Edge give us the stack trace as soon as an Error is created
         // - IE10+, PhantomJS give us the stack trace only once the error is thrown
         // - IE9 does not provide stack traces
         var stackTraceSupported = (function() {
@@ -2432,13 +2415,15 @@ describe('ngMock', function() {
 
 describe('ngMockE2E', function() {
   describe('$httpBackend', function() {
-    var hb, realHttpBackend, callback;
+    var hb, realHttpBackend, realHttpBackendBrowser, callback;
 
     beforeEach(function() {
       callback = jasmine.createSpy('callback');
       angular.module('ng').config(function($provide) {
         realHttpBackend = jasmine.createSpy('real $httpBackend');
-        $provide.value('$httpBackend', realHttpBackend);
+        $provide.factory('$httpBackend', ['$browser', function($browser) {
+          return realHttpBackend.and.callFake(function() { realHttpBackendBrowser = $browser; });
+        }]);
       });
       module('ngMockE2E');
       inject(function($injector) {
@@ -2476,6 +2461,14 @@ describe('ngMockE2E', function() {
 
         expect(realHttpBackend).not.toHaveBeenCalled();
         expect(callback).toHaveBeenCalledOnceWith(200, 'passThrough override', '', '');
+      }));
+
+      it('should pass through to an httpBackend that uses the same $browser service', inject(function($browser) {
+        hb.when('GET', /\/passThrough\/.*/).passThrough();
+        hb('GET', '/passThrough/23');
+
+        expect(realHttpBackend).toHaveBeenCalledOnce();
+        expect(realHttpBackendBrowser).toBe($browser);
       }));
     });
 

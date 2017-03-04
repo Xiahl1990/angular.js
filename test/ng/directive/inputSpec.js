@@ -419,7 +419,7 @@ describe('input', function() {
 
             scope.field = 'fake field';
             scope.$watch('field', function() {
-              // We need to use _originalTrigger since trigger is modified by Angular Scenario.
+              // We need to use _originalTrigger since trigger is modified by AngularJS Scenario.
               inputElm._originalTrigger('change');
             });
             scope.$apply();
@@ -2787,6 +2787,13 @@ describe('input', function() {
             helper.changeInputValueTo('3.5');
             expect(inputElm).toBeValid();
             expect($rootScope.value).toBe(3.5);
+
+            // 1.16 % 0.01 === 0.009999999999999896
+            // 1.16 * 100  === 115.99999999999999
+            $rootScope.step = 0.01;
+            helper.changeInputValueTo('1.16');
+            expect(inputElm).toBeValid();
+            expect($rootScope.value).toBe(1.16);
           }
         );
       });
@@ -3656,7 +3663,9 @@ describe('input', function() {
 
         it('should correctly validate even in cases where the JS floating point arithmetic fails',
           function() {
-            var inputElm = helper.compileInput('<input type="range" ng-model="value" step="0.1" />');
+            $rootScope.step = 0.1;
+            var inputElm = helper.compileInput(
+                '<input type="range" ng-model="value" step="{{step}}" />');
             var ngModel = inputElm.controller('ngModel');
 
             expect(inputElm.val()).toBe('');
@@ -3681,6 +3690,13 @@ describe('input', function() {
             helper.changeInputValueTo('3.5');
             expect(inputElm).toBeValid();
             expect($rootScope.value).toBe(3.5);
+
+            // 1.16 % 0.01 === 0.009999999999999896
+            // 1.16 * 100  === 115.99999999999999
+            $rootScope.step = 0.01;
+            helper.changeInputValueTo('1.16');
+            expect(inputElm).toBeValid();
+            expect($rootScope.value).toBe(1.16);
           }
         );
       }
@@ -4193,6 +4209,26 @@ describe('input', function() {
 
       expect(inputElm[0].value).toBe('something');
       expect(inputElm[0].getAttribute('value')).toBe('something');
+    });
+
+    it('should clear the "dom" value property and attribute when the value is undefined', function() {
+      var inputElm = helper.compileInput('<input type="text" ng-value="value">');
+
+      $rootScope.$apply('value = "something"');
+
+      expect(inputElm[0].value).toBe('something');
+      expect(inputElm[0].getAttribute('value')).toBe('something');
+
+      $rootScope.$apply(function() {
+        delete $rootScope.value;
+      });
+
+      expect(inputElm[0].value).toBe('');
+      // Support: IE 9-11
+      // In IE it is not possible to remove the `value` attribute from an input element.
+      if (!msie) {
+        expect(inputElm[0].getAttribute('value')).toBeNull();
+      }
     });
 
     they('should update the $prop "value" property and attribute after the bound expression changes', {

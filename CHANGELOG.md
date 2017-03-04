@@ -1,3 +1,138 @@
+<a name="1.6.2"></a>
+# 1.6.2 llamacorn-lovehug (2017-02-07)
+
+
+## Bug Fixes
+- **$compile:**
+  - do not swallow thrown errors in testsg
+  ([0377c6](https://github.com/angular/angular.js/commit/0377c6f0e890cb4ed3eb020b96720b4b34f75df3),
+  [#15629](https://github.com/angular/angular.js/issues/15629),
+  [#15631](https://github.com/angular/angular.js/issues/15631))
+  - allow the usage of "$" in isolate scope property alias
+  ([7f2af3](https://github.com/angular/angular.js/commit/7f2af3f923e7a3f85c8862d0ed57d21c72eae904),
+  [#15594](https://github.com/angular/angular.js/issues/15594))
+- **$location:** correctly handle external URL change during `$digest`
+  ([b60761](https://github.com/angular/angular.js/commit/b607618342d6c4fab364966fe05f152be6bd4d5f),
+  [#11075](https://github.com/angular/angular.js/issues/11075),
+  [#12571](https://github.com/angular/angular.js/issues/12571),
+  [#15556](https://github.com/angular/angular.js/issues/15556),
+  [#15561](https://github.com/angular/angular.js/issues/15561))
+- **$browser:** detect external changes in `history.state`
+  ([fa50fb](https://github.com/angular/angular.js/commit/fa50fbaf57b3437be7a410ecaba7008dbe0ef239))
+- **$resource:**
+  - do not swallow errors in `success` callback
+  ([27146e](https://github.com/angular/angular.js/commit/27146e8a7fad54c1342179b6d291b1b5c2ebe816),
+  [#15624](https://github.com/angular/angular.js/issues/15624),
+  [#15628](https://github.com/angular/angular.js/issues/15628))
+  - correctly unescape `/\.` even if `\.` comes from a param value
+  ([419a48](https://github.com/angular/angular.js/commit/419a4813e354496bdf0df44e3f8afaa198df1ab1),
+  [#15627](https://github.com/angular/angular.js/issues/15627))
+  - delete `$cancelRequest()` in `toJSON()`
+  ([086c5d](https://github.com/angular/angular.js/commit/086c5d0354db8cb3d106b9ff966fb48d6fb46ef8),
+  [#15244](https://github.com/angular/angular.js/issues/15244))
+- **$animate:** correctly animate transcluded clones with `templateUrl`
+  ([f01212](https://github.com/angular/angular.js/commit/f01212ab5287ac7a154da7d75037ed444e81eb34),
+  [#15510](https://github.com/angular/angular.js/issues/15510),
+  [#15514](https://github.com/angular/angular.js/issues/15514))
+- **$route:** make asynchronous tasks count as pending requests
+  ([eb968c](https://github.com/angular/angular.js/commit/eb968c4a6884838db05369a04459066424c5bba8),
+  [#14159](https://github.com/angular/angular.js/issues/14159))
+- **$parse:** make sure ES6 object computed properties are watched
+  ([5e418b](https://github.com/angular/angular.js/commit/5e418b1145a1045da598c7863e785d647ea83850),
+  [#15678](https://github.com/angular/angular.js/issues/15678))
+- **$sniffer:** allow `history` for NW.js apps
+  ([4a593d](https://github.com/angular/angular.js/commit/4a593db79ba1e21a6aa600a82cf6d757cad94d01),
+  [#15474](https://github.com/angular/angular.js/issues/15474),
+  [#15633](https://github.com/angular/angular.js/issues/15633))
+- **input:** fix `step` validation for `input[type=number/range]`
+  ([c95a67](https://github.com/angular/angular.js/commit/c95a6737fbd277e40c064bd9f68f383bf119505c),
+  [#15504](https://github.com/angular/angular.js/issues/15504),
+  [#15506](https://github.com/angular/angular.js/issues/15506))
+- **select:** keep `ngModel` when selected option is recreated by `ngRepeat`
+  ([131af8](https://github.com/angular/angular.js/commit/131af8272d269a541d04cb522c264a91e0ec8b6a),
+  [#15630](https://github.com/angular/angular.js/issues/15630),
+  [#15632](https://github.com/angular/angular.js/issues/15632))
+- **ngValue:** correctly update the `value` property when `value` is undefined
+  ([05aab6](https://github.com/angular/angular.js/commit/05aab660ce74f526f2110d3b5faf9a5b4f4e664b)
+  [#15603](https://github.com/angular/angular.js/issues/15603),
+  [#15605](https://github.com/angular/angular.js/issues/15605))
+- **angularInit:** allow auto-bootstrapping from inline script
+  ([bb464d](https://github.com/angular/angular.js/commit/bb464d16b434b9e2de2fecf80c192d4741cba879),
+  [#15567](https://github.com/angular/angular.js/issues/15567),
+  [#15571](https://github.com/angular/angular.js/issues/15571))
+- **ngMockE2E:** ensure that mocked `$httpBackend` uses correct `$browser`
+  ([bd63b2](https://github.com/angular/angular.js/commit/bd63b2235cd410251cb83eebd9a47d3102830b6b),
+  [#15593](https://github.com/angular/angular.js/issues/15593))
+
+
+## New Features
+- **ngModel:** add `$overrideModelOptions` support
+  ([2546c2](https://github.com/angular/angular.js/commit/2546c29f811b68eea4d68be7fa1c8f7bb562dc11),
+  [#15415](https://github.com/angular/angular.js/issues/15415))
+- **$parse:** allow watching array/object literals with non-primitive values
+  ([25f008](https://github.com/angular/angular.js/commit/25f008f541d68b09efd7b428b648c6d4899e6972),
+  [#15301](https://github.com/angular/angular.js/issues/15301))
+
+
+
+<a name="1.5.11"></a>
+# 1.5.11 princely-quest (2017-01-13)
+
+
+## Bug Fixes
+- **$compile:** allow the usage of "$" in isolate scope property alias
+  ([e75fbc](https://github.com/angular/angular.js/commit/e75fbc494e6a0da6a9231b40bb0382431b62be07),
+  [#15586](https://github.com/angular/angular.js/issues/15586),
+  [#15594](https://github.com/angular/angular.js/issues/15594))
+- **angularInit:** allow auto-bootstrapping from inline script
+  ([41aa91](https://github.com/angular/angular.js/commit/41aa9125b9aaf771addb250642f524a4e6f9d8d3),
+  [#15567](https://github.com/angular/angular.js/issues/15567),
+  [#15571](https://github.com/angular/angular.js/issues/15571))
+- **$resource:** delete `$cancelRequest()` in `toJSON()`
+  ([4f3858](https://github.com/angular/angular.js/commit/4f3858e7c371f87534397f45b9d002add33b00cc),
+  [#15244](https://github.com/angular/angular.js/issues/15244))
+- **$$cookieReader:** correctly handle forbidden access to `document.cookie`
+  ([6933cf](https://github.com/angular/angular.js/commit/6933cf64fe51f54b10d1639f2b95bab3c1178df9),
+  [#15523](https://github.com/angular/angular.js/issues/15523),
+  [#15532](https://github.com/angular/angular.js/issues/15532))
+
+
+
+<a name="1.6.1"></a>
+# 1.6.1 promise-rectification (2016-12-23)
+
+
+## Bug Fixes
+- **$q:** Add traceback to unhandled promise rejections
+  ([174cb4](https://github.com/angular/angular.js/commit/174cb4a8c81e25581da5b452c2bb43b0fa377a9b),
+  [#14631](https://github.com/angular/angular.js/issues/14631))
+- **$$cookieReader:** correctly handle forbidden access to `document.cookie`
+  ([33f769](https://github.com/angular/angular.js/commit/33f769b0a1214055c16fb59adad4897bf53d62bf),
+  [#15523](https://github.com/angular/angular.js/issues/15523))
+- **ngOptions:** do not unset the `selected` property unless necessary
+  ([bc4844](https://github.com/angular/angular.js/commit/bc4844d3b297d80aecef89aa1b32615024decedc),
+  [#15477](https://github.com/angular/angular.js/issues/15477))
+- **ngModelOptions:** work correctly when on the template of `replace` directives
+  ([5f8ed6](https://github.com/angular/angular.js/commit/5f8ed63f2ab02ffb9c21bf9c29d27c851d162e26),
+  [#15492](https://github.com/angular/angular.js/issues/15492))
+- **ngClassOdd/Even:** add/remove the correct classes when expression/`$index` change simultaneously
+  ([d52864](https://github.com/angular/angular.js/commit/d528644fe3e9ffd43999e7fc67806059f9e1083e))
+- **jqLite:** silently ignore `after()` if element has no parent
+  ([3d68b9](https://github.com/angular/angular.js/commit/3d68b9502848ff6714ef89bfb95b8e70ae34eff6),
+  [#15331](https://github.com/angular/angular.js/issues/15331),
+  [#15475](https://github.com/angular/angular.js/issues/15475))
+- **$rootScope:** when adding/removing watchers during $digest
+  ([163aca](https://github.com/angular/angular.js/commit/163aca336d7586a45255787af41b14b2a12361dd),
+  [#15422](https://github.com/angular/angular.js/issues/15422))
+
+
+## Performance Improvements
+- **ngClass:** avoid unnecessary `.data()` accesses, deep-watching and copies
+  ([1d3b65](https://github.com/angular/angular.js/commit/1d3b65adc2c22ff662159ef910089cf10d1edb7b),
+  [#14404](https://github.com/angular/angular.js/issues/14404))
+
+
+
 <a name="1.5.10"></a>
 # 1.5.10 asynchronous-synchronization (2016-12-15)
 
@@ -5,46 +140,46 @@
 ## Bug Fixes
 - **$compile:**
   - don't throw tplrt error when there is whitespace around a top-level comment
-    ([12752f](https://github.com/angular/angular.js/commit/12752f66ac425ab38a5ee574a4bfbf3516adc42c)
+    ([12752f](https://github.com/angular/angular.js/commit/12752f66ac425ab38a5ee574a4bfbf3516adc42c),
     [#15108](https://github.com/angular/angular.js/issues/15108))
   - clean up `@`-binding observers when re-assigning bindings
-    ([f3cb6e](https://github.com/angular/angular.js/commit/f3cb6e309aa1f676e5951ac745fa886d3581c2f4)
+    ([f3cb6e](https://github.com/angular/angular.js/commit/f3cb6e309aa1f676e5951ac745fa886d3581c2f4),
     [#15268](https://github.com/angular/angular.js/issues/15268))
   - set attribute value even if `ngAttr*` contains no interpolation
-    ([229799](https://github.com/angular/angular.js/commit/22979904fb754c59e9f6ee5d8763e3b8de0e18c2)
+    ([229799](https://github.com/angular/angular.js/commit/22979904fb754c59e9f6ee5d8763e3b8de0e18c2),
     [#15133](https://github.com/angular/angular.js/issues/15133))
   - `bindToController` should work without `controllerAs`
-    ([944989](https://github.com/angular/angular.js/commit/9449893763a4fd95ee8ff78b53c6966a874ec9ae)
+    ([944989](https://github.com/angular/angular.js/commit/9449893763a4fd95ee8ff78b53c6966a874ec9ae),
     [#15088](https://github.com/angular/angular.js/issues/15088))
   - do not overwrite values set in `$onInit()` for `<`-bound literals
-    ([07e1ba](https://github.com/angular/angular.js/commit/07e1ba365fb5e8a049be732bd7b62f71e0aa1672)
+    ([07e1ba](https://github.com/angular/angular.js/commit/07e1ba365fb5e8a049be732bd7b62f71e0aa1672),
     [#15118](https://github.com/angular/angular.js/issues/15118))
   - avoid calling `$onChanges()` twice for `NaN` initial values
     ([0cf5be](https://github.com/angular/angular.js/commit/0cf5be52642f7e9d81a708b3005042eac6492572))
 - **$location:** prevent infinite digest with IDN urls in Edge
-  ([4bf892](https://github.com/angular/angular.js/commit/4bf89218130d434771089fdfe643490b8d2ee259)
+  ([4bf892](https://github.com/angular/angular.js/commit/4bf89218130d434771089fdfe643490b8d2ee259),
   [#15217](https://github.com/angular/angular.js/issues/15217))
 - **$rootScope:** correctly handle adding/removing watchers during `$digest`
-  ([a9708d](https://github.com/angular/angular.js/commit/a9708de84b50f06eacda33834d5bbdfc97c97f37)
+  ([a9708d](https://github.com/angular/angular.js/commit/a9708de84b50f06eacda33834d5bbdfc97c97f37),
   [#15422](https://github.com/angular/angular.js/issues/15422))
 - **$sce:** fix `adjustMatcher` to replace multiple `*` and `**`
   ([78eecb](https://github.com/angular/angular.js/commit/78eecb43dbb0500358d333aea8955bd0646a7790))
 - **jqLite:** silently ignore `after()` if element has no parent
-  ([77ed85](https://github.com/angular/angular.js/commit/77ed85bcd3be057a5a79231565ac7accc6d644c6)
+  ([77ed85](https://github.com/angular/angular.js/commit/77ed85bcd3be057a5a79231565ac7accc6d644c6),
   [#15331](https://github.com/angular/angular.js/issues/15331))
 - **input[radio]:** use non-strict comparison for checkedness
   ([593a50](https://github.com/angular/angular.js/commit/593a5034841b3b7661d3bcbdd06b7a9d0876fd34))
 - **select, ngOptions:**
   - let `ngValue` take precedence over option text with multiple interpolations
-    ([5b7ec8](https://github.com/angular/angular.js/commit/5b7ec8c84e88ee08aacaf9404853eda0016093f5)
+    ([5b7ec8](https://github.com/angular/angular.js/commit/5b7ec8c84e88ee08aacaf9404853eda0016093f5),
     [#15413](https://github.com/angular/angular.js/issues/15413))
   - don't add comment nodes as empty options
-    ([1d29c9](https://github.com/angular/angular.js/commit/1d29c91c3429de96e4103533752700d1266741be)
+    ([1d29c9](https://github.com/angular/angular.js/commit/1d29c91c3429de96e4103533752700d1266741be),
     [#15454](https://github.com/angular/angular.js/issues/15454))
 - **ngClassOdd/Even:** add/remove the correct classes when expression/`$index` change simultaneously
   ([e3d020](https://github.com/angular/angular.js/commit/e3d02070ab8a02c818dcc5114db6fba9d3f385d6))
 - **$sanitize:** reduce stack height in IE <= 11
-  ([862dc2](https://github.com/angular/angular.js/commit/862dc2532f8126a4a71fd3d957884ba6f11f591c)
+  ([862dc2](https://github.com/angular/angular.js/commit/862dc2532f8126a4a71fd3d957884ba6f11f591c),
   [#14928](https://github.com/angular/angular.js/issues/14928))
 - **ngMock/$controller:** respect `$compileProvider.preAssignBindingsEnabled()`
   ([75c83f](https://github.com/angular/angular.js/commit/75c83ff3195931859a099f7a95bf81d32abf2eb3))
@@ -52,35 +187,35 @@
 
 ## New Features
 - **bootstrap:** do not bootstrap from unknown schemes with a different origin
-  ([bdeb33](https://github.com/angular/angular.js/commit/bdeb3392a8719131ab2b993f2a881c43a2860f92)
+  ([bdeb33](https://github.com/angular/angular.js/commit/bdeb3392a8719131ab2b993f2a881c43a2860f92),
   [#15428](https://github.com/angular/angular.js/issues/15428))
 - **$anchorScroll:** convert numeric hash targets to string
-  ([a52640](https://github.com/angular/angular.js/commit/a5264090b66ad0cf9a93de84bb7b307868c0edef)
+  ([a52640](https://github.com/angular/angular.js/commit/a5264090b66ad0cf9a93de84bb7b307868c0edef),
   [#14680](https://github.com/angular/angular.js/issues/14680))
 - **$compile:**
   - add `preAssignBindingsEnabled` option
     ([f86576](https://github.com/angular/angular.js/commit/f86576def44005f180a66e3aa12d6cc73c1ac72c))
   - throw error when directive name or factory function is invalid
-    ([5c9399](https://github.com/angular/angular.js/commit/5c9399d18ae5cd79e6cf6fc4377d66df00f6fcc7)
+    ([5c9399](https://github.com/angular/angular.js/commit/5c9399d18ae5cd79e6cf6fc4377d66df00f6fcc7),
     [#15056](https://github.com/angular/angular.js/issues/15056))
 - **$controller:** throw when requested controller is not registered
-  ([9ae793](https://github.com/angular/angular.js/commit/9ae793d8a69afe84370b601e07fc375fc18a576a)
+  ([9ae793](https://github.com/angular/angular.js/commit/9ae793d8a69afe84370b601e07fc375fc18a576a),
   [#14980](https://github.com/angular/angular.js/issues/14980))
 - **$location:** add support for selectively rewriting links based on attribute
   ([a4a222](https://github.com/angular/angular.js/commit/a4a22266f127d3b9a6818e6f4754f048e253f693))
 - **$resource:** pass `status`/`statusText` to success callbacks
-  ([a8da25](https://github.com/angular/angular.js/commit/a8da25c74d2c1f6265f0fafd95bf72c981d9d678)
-  [#8341](https://github.com/angular/angular.js/issues/8841)
+  ([a8da25](https://github.com/angular/angular.js/commit/a8da25c74d2c1f6265f0fafd95bf72c981d9d678),
+  [#8341](https://github.com/angular/angular.js/issues/8841),
   [#8841](https://github.com/angular/angular.js/issues/8841))
 - **ngSwitch:** allow multiple case matches via optional attribute `ngSwitchWhenSeparator`
-  ([0e1651](https://github.com/angular/angular.js/commit/0e1651bfd28ba73ebd0e4943d85af48c4506e02c)
-  [#3410](https://github.com/angular/angular.js/issues/3410)
+  ([0e1651](https://github.com/angular/angular.js/commit/0e1651bfd28ba73ebd0e4943d85af48c4506e02c),
+  [#3410](https://github.com/angular/angular.js/issues/3410),
   [#3516](https://github.com/angular/angular.js/issues/3516))
 
 
 ## Performance Improvements
 - **all:** don't trigger digests after enter/leave of structural directives
-  ([c57779](https://github.com/angular/angular.js/commit/c57779d8725493c5853dceda0105dafd5c0e3a7c)
+  ([c57779](https://github.com/angular/angular.js/commit/c57779d8725493c5853dceda0105dafd5c0e3a7c),
   [#15322](https://github.com/angular/angular.js/issues/15322))
 - **$compile:** validate `directive.restrict` property on directive init
   ([31d464](https://github.com/angular/angular.js/commit/31d464feef38b1cc950da6c8dccd0f194ebfc68b))
@@ -114,6 +249,9 @@ consolidating all the changes shown in the previous 1.6.0 release candidates.**
     ([369fb7](https://github.com/angular/angular.js/commit/369fb7f4f73664bcdab0350701552d8bef6f605e))
   - don't throw for elements with missing `getAttribute`
     ([4e6c14](https://github.com/angular/angular.js/commit/4e6c14dcae4a9a30b3610a288ef8d20db47c4417))
+  - don't get/set properties when getting/setting boolean attributes
+    ([7ceb5f](https://github.com/angular/angular.js/commit/7ceb5f6fcc43d35d1b66c3151ce6a71c60309304),
+    [#14126](https://github.com/angular/angular.js/issues/14126))
   - don't remove a boolean attribute for `.attr(attrName, '')`
     ([3faf45](https://github.com/angular/angular.js/commit/3faf4505732758165083c9d21de71fa9b6983f4a))
   - remove the attribute for `.attr(attribute, null)`
@@ -593,6 +731,48 @@ var bgColor = elem.css('background-color');
 var bgColor = elem.css('backgroundColor');
 ```
 
+- **[7ceb5f](https://github.com/angular/angular.js/commit/7ceb5f6fcc43d35d1b66c3151ce6a71c60309304)**: don't get/set properties when getting/setting boolean attributes
+
+Previously, all boolean attributes were reflected into the corresponding property when calling a
+setter and from the corresponding property when calling a getter, even on elements that don't treat
+those attributes in a special way. Now Angular doesn't do it by itself, but relies on browsers to
+know when to reflect the property. Note that this browser-level conversion differs between browsers;
+if you need to dynamically change the state of an element, you should modify the property, not the
+attribute. See https://jquery.com/upgrade-guide/1.9/#attr-versus-prop- for a more detailed
+description about a related change in jQuery 1.9.
+
+This change aligns jqLite with jQuery 3. To migrate the code follow the example below:
+
+Before:
+
+CSS:
+
+```css
+input[checked="checked"] { ... }
+```
+
+JS:
+
+```js
+elem1.attr('checked', 'checked');
+elem2.attr('checked', false);
+```
+
+After:
+
+CSS:
+
+```css
+input:checked { ... }
+```
+
+JS:
+
+```js
+elem1.prop('checked', true);
+elem2.prop('checked', false);
+```
+
 - **[3faf45](https://github.com/angular/angular.js/commit/3faf4505732758165083c9d21de71fa9b6983f4a)**:
   don't remove a boolean attribute for `.attr(attrName, '')`
 
@@ -1016,7 +1196,7 @@ previous behaviour simply add a comment:
 **Note:** Everything described below affects **IE11 only**.
 
 Previously, consecutive text nodes would not get merged if they had no parent. They will now, which
-might have unexpectd side effects in the following cases:
+might have unexpected side effects in the following cases:
 
 1. Passing an array or jqLite/jQuery collection of parent-less text nodes to `$compile` directly:
 
@@ -1170,7 +1350,7 @@ In cases where `ngView` was loaded asynchronously, `$route` (and its dependencie
 might also have been instantiated asynchronously. After this change, `$route` (and its dependencies)
 will - by default - be instantiated early on.
 
-Although this is not expected to have unwanted side-effects in normal application bebavior, it may
+Although this is not expected to have unwanted side-effects in normal application behavior, it may
 affect your unit tests: When testing a module that (directly or indirectly) depends on `ngRoute`, a
 request will be made for the default route's template. If not properly "trained", `$httpBackend`
 will complain about this unexpected request.
@@ -1793,6 +1973,7 @@ Please read the [Sandbox Removal Blog Post](http://angularjs.blogspot.com/2016/0
 - **jqLite:**
   - implement `jqLite(f)` as an alias to `jqLite(document).ready(f)` ([369fb7](https://github.com/angular/angular.js/commit/369fb7f4f73664bcdab0350701552d8bef6f605e))
   - don't throw for elements with missing `getAttribute` ([4e6c14](https://github.com/angular/angular.js/commit/4e6c14dcae4a9a30b3610a288ef8d20db47c4417))
+  - don't get/set properties when getting/setting boolean attributes ([7ceb5f](https://github.com/angular/angular.js/commit/7ceb5f6fcc43d35d1b66c3151ce6a71c60309304), [#14126](https://github.com/angular/angular.js/issues/14126))
   - don't remove a boolean attribute for `.attr(attrName, '')` ([3faf45](https://github.com/angular/angular.js/commit/3faf4505732758165083c9d21de71fa9b6983f4a))
   - remove the attribute for `.attr(attribute, null)` ([4e3624](https://github.com/angular/angular.js/commit/4e3624552284d0e725bf6262b2e468cd2c7682fa))
   - return `[]` for `.val()` on `<select multiple>` with no selection ([d882fd](https://github.com/angular/angular.js/commit/d882fde2e532216e7cf424495db1ccb5be1789f8))
@@ -1968,6 +2149,48 @@ elem.css('backgroundColor', 'blue');
 // Previous five versions are no longer equivalent but these two still are.
 var bgColor = elem.css('background-color');
 var bgColor = elem.css('backgroundColor');
+```
+
+- **[7ceb5f](https://github.com/angular/angular.js/commit/7ceb5f6fcc43d35d1b66c3151ce6a71c60309304)**: don't get/set properties when getting/setting boolean attributes
+
+Previously, all boolean attributes were reflected into the corresponding property when calling a
+setter and from the corresponding property when calling a getter, even on elements that don't treat
+those attributes in a special way. Now Angular doesn't do it by itself, but relies on browsers to
+know when to reflect the property. Note that this browser-level conversion differs between browsers;
+if you need to dynamically change the state of an element, you should modify the property, not the
+attribute. See https://jquery.com/upgrade-guide/1.9/#attr-versus-prop- for a more detailed
+description about a related change in jQuery 1.9.
+
+This change aligns jqLite with jQuery 3. To migrate the code follow the example below:
+
+Before:
+
+CSS:
+
+```css
+input[checked="checked"] { ... }
+```
+
+JS:
+
+```js
+elem1.attr('checked', 'checked');
+elem2.attr('checked', false);
+```
+
+After:
+
+CSS:
+
+```css
+input:checked { ... }
+```
+
+JS:
+
+```js
+elem1.prop('checked', true);
+elem2.prop('checked', false);
 ```
 
 - **[3faf45](https://github.com/angular/angular.js/commit/3faf4505732758165083c9d21de71fa9b6983f4a)**: don't remove a boolean attribute for `.attr(attrName, '')`
@@ -2403,7 +2626,7 @@ affects custom directives that might have been reading options for their own pur
 **Note:** Everything described below affects **IE11 only**.
 
 Previously, consecutive text nodes would not get merged if they had no parent. They will now, which
-might have unexpectd side effects in the following cases:
+might have unexpected side effects in the following cases:
 
 1. Passing an array or jqLite/jQuery collection of parent-less text nodes to `$compile` directly:
 
@@ -2553,7 +2776,7 @@ In cases where `ngView` was loaded asynchronously, `$route` (and its dependencie
 might also have been instantiated asynchronously. After this change, `$route` (and its dependencies)
 will - by default - be instantiated early on.
 
-Although this is not expected to have unwanted side-effects in normal application bebavior, it may
+Although this is not expected to have unwanted side-effects in normal application behavior, it may
 affect your unit tests: When testing a module that (directly or indirectly) depends on `ngRoute`, a
 request will be made for the default route's template. If not properly "trained", `$httpBackend`
 will complain about this unexpected request.
@@ -2878,6 +3101,18 @@ validation), you can overwrite the built-in `step` validator with a custom direc
 })
 ```
 
+<a name="1.2.32"></a>
+# 1.2.32 alternation-intention (2016-10-11)
+
+This release reverts the fix in 1.2.31 and provides an alternative fix that doesn't break Angular Material.
+
+## Reverts
+- **input:** ensure that hidden input values are correct after history back
+  ([ed44dd065](https://github.com/angular/angular.js/commit/ed44dd0659f346ced78a112e4a2b30d3af4fd572))
+
+## Bug Fixes
+- **$compile:** ensure that hidden input values are correct after history back
+  ([b8a0ecdd6](https://github.com/angular/angular.js/commit/b8a0ecdd6189fb111734eb5b6d4d473d0dcf4c36))
 
 
 <a name="1.4.13"></a>
@@ -12268,7 +12503,7 @@ Contains only these fixes cherry-picked from [v1.2.0rc1](#1.2.0rc1).
   - due to [39841f2e](https://github.com/angular/angular.js/commit/39841f2ec9b17b3b2920fd1eb548d444251f4f56),
   Interpolations inside DOM event handlers are disallowed.
 
-    DOM event handlers execute arbitrary Javascript code. Using an interpolation for such handlers means that the interpolated value is a JS string that is evaluated.  Storing or generating such strings is error prone and leads to XSS vulnerabilities. On the other hand, `ngClick` and other Angular specific event handlers evaluate Angular expressions in non-window (Scope) context which makes them much safer.
+    DOM event handlers execute arbitrary JavaScript code. Using an interpolation for such handlers means that the interpolated value is a JS string that is evaluated.  Storing or generating such strings is error prone and leads to XSS vulnerabilities. On the other hand, `ngClick` and other Angular specific event handlers evaluate Angular expressions in non-window (Scope) context which makes them much safer.
 
     To migrate the code follow the example below:
 
@@ -14899,7 +15134,7 @@ with the `$route` service
 
 ### Docs
 - rewrite of several major portions of angular.service.*, angular.Array.*, angular.Object.* docs
-- added support for [sitemap]((http://docs.angularjs.org/sitemap.xml) to make the docs indexable by
+- added support for [sitemap](http://docs.angularjs.org/sitemap.xml) to make the docs indexable by
   search crawlers
 - transition of Developer Guide docs from the wiki into docs.angularjs.org
 - lots of improvements related to formatting of the content of docs.anguarjs.org
